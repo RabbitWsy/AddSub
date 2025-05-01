@@ -1,0 +1,33 @@
+[model]
+# if you want to train from scratch, set this to ""
+# if you want to train from a pretrained model, set this to the path of the model
+pretrained_model = ""
+
+# test model
+test_model = "ckpts/transformer.pt"
+
+# can be changed, make sure the model is compatible with the pretrained model
+emb_dim = 128
+num_heads = 4
+ff_dim = 256
+num_enc_layers = 3
+num_dec_layers = 3
+dropout = 0.2
+
+# can't be changed
+vocab_size = 16
+
+[data]
+train_data_path = "./data/raw/train_data.json"
+val_data_path = "./data/raw/val_data.json"
+test_data_path = "./data/raw/test_data.json"
+
+[train]
+# choice from ["LabelSmoothingLoss", "CrossEntropyLoss"]
+loss_fn = "LabelSmoothingLoss"
+
+warmup_steps = 0
+epochs = 300
+batch_size = 32
+warmup_lr = 1e-6
+lr = 1e-4

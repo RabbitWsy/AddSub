@@ -1,0 +1,19 @@
+[model]
+# set this to the path of the model
+pretrained_model = "ckpts/transformer.pt"
+
+# make sure the model is compatible with the pretrained model
+emb_dim = 128
+num_heads = 4
+ff_dim = 256
+num_enc_layers = 3
+num_dec_layers = 3
+dropout = 0.2
+
+# can't be changed
+vocab_size = 16
+
+[data]
+# can't be changed
+question_len = 9
+answer_len = 5
