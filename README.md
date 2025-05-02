@@ -57,7 +57,7 @@ python inference.py \
     --config config/inference.toml \
     --question "BOS POSITIVE 47 add NEGATIVE 28 EOS"
 ```
-- `--question`: Nessary the question to be answered
+- `--question`: Nessary, the question to be answered
 
 ## Visualize
 to be updated
