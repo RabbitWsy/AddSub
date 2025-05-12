@@ -108,7 +108,6 @@ class LayerNorm(nn.Module):
         """
         super().__init__()
 
-        self.eps = eps
         self.epsilon = eps
 
         # the parameters are learnable
