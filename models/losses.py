@@ -13,7 +13,7 @@ def LabelSmoothingLoss(
     - ground_truth: a tensor of shape (batch_size * seq_len,)
 
     output:
-    - loss: a tensor of shape (batch_size, seq_len)
+    - loss: a tensor of shape (1)
 
     formula:
     loss = (\sum_{i=1}^{batch_size * seq_len} -\sum_{j=1}^{vocab_size} p_{ij} \log q_{ij}) / (batch_size * seq_len)
@@ -28,7 +28,7 @@ def LabelSmoothingLoss(
     # apply label smoothing
     # make the probability of the correct class to be 0.9
     # and the probability of the other classes to be 0.1 / (num_classes - 1)
-    smoothed_one_hot = one_hot * (1 - 0.1) + 0.1 / (num_classes - 1)
+    smoothed_one_hot = one_hot * (1 - 0.1) + (1 - one_hot) * 0.1 / (num_classes - 1)
 
     # compute the loss
     loss = -torch.mean(
